@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+
+<table>
+  <% if @route.trains.empty? %>
+    Маршрут не имеет поездов
+  <% else %>
+    Поезда на маршруте:
+    <% @route.trains.each do |train|%>
+      <li><%= train.number %></li>
+    <% end %>
+  <% end %>
+</table>
+
+
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
