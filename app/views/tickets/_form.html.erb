@@ -1,0 +1,19 @@
+<%= form_with(model: ticket, local: true) do |form| %>
+
+  <%= render 'common/errors', resource: @ticket %>
+
+  <div class="field">
+    <%= form.label :train, 'Номер поезда' %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+    <%= form.label :first_station, 'Начальная станция' %>
+    <%= form.collection_select :first_station, RailwayStation.all, :title, :title %>
+    <%= form.label :last_station, 'Конечная станция' %>
+    <%= form.collection_select :last_station, RailwayStation.all, :title, :title %>
+    <%= form.label :user_id, "ФИО" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
